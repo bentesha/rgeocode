@@ -10,6 +10,9 @@ app.use(routes)
 
 // Custom error handler
 app.use((error, request, response, next) => {
+  if (error.isJoi) {
+    return response.sendStatus(400)
+  }
   console.log(error)
   response.status(500).send(error.message)
 })
