@@ -1,7 +1,7 @@
 const importGeojson = require('../utils/import-geojson')
 
 exports.up = function(knex) {
-  return importGeojson('ke.level4.json', 4, knex)
+  return importGeojson('tz.level4.json', 4, knex)
 };
 
 exports.down = function(knex) {
