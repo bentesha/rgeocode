@@ -25,7 +25,7 @@ router.get('/coordinate-info', ({ query }, response, next) => {
     const level1SubQuery = knex
       .from('boundary_level1')
       .whereRaw('ST_Contains(geometry, ST_GeomFromGeoJSON(?))', JSON.stringify(point))
-      // .where('admin_level0', knex.raw('?', level0SubQuery))
+      .where('admin_level0', knex.raw('?', level0SubQuery))
       .select('admin_level1')
       .first()
 

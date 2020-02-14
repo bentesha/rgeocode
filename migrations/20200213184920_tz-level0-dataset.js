@@ -1,23 +1,7 @@
-const turf = require('@turf/turf')
-const uuid = require('uuid')
-const features = require('../geojson/tz.level0.json')
-const _ = require('lodash')
+const importGeojson = require('../utils/import-geojson')
 
-const startCase = string => _.startCase(string.toLowerCase())
-
-exports.up = async function(knex) {
-  const shapes = []
-  turf.featureEach(features, feature => {
-    const shape = {
-      id: uuid(),
-      admin_level0: feature.properties.level0,
-      geometry: knex.raw('ST_GeomFromGeoJSON(?)', JSON.stringify(feature.geometry))
-    }
-    shapes.push(shape)
-  })
-  for(const shape of shapes) {
-    await knex.into('boundary_level0').insert(shape)
-  }
+exports.up = function(knex) {
+  return importGeojson('tz.level0.json', 0, knex)
 };
 
 exports.down = function(knex) {
