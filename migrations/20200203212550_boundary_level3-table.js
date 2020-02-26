@@ -2,16 +2,24 @@
 exports.up = function(knex) {
   return knex.schema.createTable('boundary_level3', table => {
     table.string('id').primary()
-    table.string('admin_level0').notNullable()
-    table.string('admin_level1').notNullable()
-    table.string('admin_level2').notNullable()
-    table.string('admin_level3').notNullable()
+    table.string('level0_name').notNullable()
+    table.string('level1_name').notNullable()
+    table.string('level2_name').notNullable()
+    table.string('level3_name').notNullable()
+    table.string('level0_pcode').notNullable()
+    table.string('level1_pcode').notNullable()
+    table.string('level2_pcode').notNullable()
+    table.string('level3_pcode').notNullable()
     table.specificType('geometry', 'geometry').notNullable()
     table.index['geometry']
-    table.index('admin_level0')
-    table.index('admin_level1')
-    table.index('admin_level2')
-    table.index('admin_level3')
+    table.index('level0_name')
+    table.index('level1_name')
+    table.index('level2_name')
+    table.index('level3_name')
+    table.index('level0_pcode')
+    table.index('level1_pcode')
+    table.index('level2_pcode')
+    table.index('level3_pcode')
   })
 };
 

@@ -2,10 +2,12 @@
 exports.up = function(knex) {
   return knex.schema.createTable('boundary_level0', table => {
     table.string('id').primary()
-    table.string('admin_level0').notNullable()
+    table.string('level0_name').notNullable()
+    table.string('level0_pcode').notNullable()
     table.specificType('geometry', 'geometry').notNullable()
     table.index['geometry']
-    table.index('admin_level0')
+    table.index('level0_name')
+    table.index('level0_pcode')
   })
 };
 

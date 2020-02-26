@@ -5,5 +5,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  return knex.from('boundary_level3').where({ admin_level0: 'ke' }).delete()
+  return knex.from('boundary_level3').where({ level0_name: 'ke' }).delete()
 };
