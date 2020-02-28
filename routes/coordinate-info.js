@@ -77,7 +77,12 @@ router.get('/coordinate-info', ({ query }, response, next) => {
         'level3_name',
         'level2_name',
         'level1_name',
-        'level0_name'
+        'level0_name',
+        'level4_pcode',
+        'level3_pcode',
+        'level2_pcode',
+        'level1_pcode',
+        'level0_pcode'
       )
       .first()
     if (result === undefined) {
