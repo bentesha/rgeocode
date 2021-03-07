@@ -27,17 +27,42 @@ http://localhost:7000/reverse-geocode/?latitude=-6.8075823&longitude=39.2811514
 ```
 
 # Installation
-### 1. Clone Repository
-Clone this repository on Github, `cd` into project root and install dependencies.
+
+## Using Docker/Docker Compose
+The easiest way to run **rGeocode** is through docker-compose.
+
+Clone the repository on your machine and `cd` into the project root, then run docker compose:
 
 ```
-git clone http://github.com/bentesha/rgeocode.git
+docker-compose up -d
+```
+
+That is it! By default, the server listens on port `7000`.
+
+It will take several seconds on the first run for the database to initialize.
+
+Use the `logs` command to check when the server is ready to accept connections:
+```
+docker-compose logs --follow rgeocode
+```
+
+For more information, check the `docker-compose.yaml` file.
+
+## Manual Installation
+
+Follow below steps to manually install **rGeocode** from the repository:
+
+### 1. Clone Repository
+Clone this repository, `cd` into the project root and install dependencies:
+
+```
+git clone https://github.com/bentesha/rgeocode.git
 cd rgeocode
 npm install
 ```
 
 ### 2. Configure MySQL Server
-**rGeocode** stores custom map bounderis in MySQL database. You will need to create a `.env` configuration file in the project root and provide MySQL server details:
+**rGeocode** stores custom map boundaries in a MySQL database. You will need to create a `.env` configuration file in the project root and provide MySQL server details. The `example.env` file is included as starting point.
 
 ```
 cp example.env .env
@@ -56,10 +81,13 @@ npm run migrate
 npm start
 ```
 
-By default, **rGeocode** listens on port `7000`. You can change the listening port in the `.env` configuration file you create in step `#2` above.
+By default, **rGeocode** listens on port `7000`. You can change port number in the `.env` file created in step `#2` above.
 
 # How To Use
-Once the server is running, call the REST end point `/reverse-geocode`, supplying latitude and longitude coordiantes as query parameters.
+
+### Sending Request
+
+Once the server is running, call the REST endpoint `/reverse-geocode`, supplying latitude and longitude coordinates as query parameters.
 
 ```
 http://localhost:7000/reverse-geocode/?latitude=-6.8075823&longitude=39.2811514
