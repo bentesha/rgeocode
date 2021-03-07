@@ -7,7 +7,7 @@ const Knex = require('knex')
 const router = express.Router()
 const knex = Knex(config().database)
 
-router.get('/coordinate-info', ({ query }, response, next) => {
+router.get('/reverse-geocode', ({ query }, response, next) => {
   ;(async () => {
     const schema = Joi.object({
       latitude: Joi.number()
