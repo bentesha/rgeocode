@@ -4,7 +4,7 @@ exports.up = function(knex) {
     table.string('id').primary()
     table.string('level0_name').notNullable()
     table.string('level0_pcode').notNullable()
-    table.specificType('geometry', 'geometry').notNullable()
+    table.specificType('geometry', 'Geometry').notNullable()
     table.index['geometry']
     table.index('level0_name')
     table.index('level0_pcode')

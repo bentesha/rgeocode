@@ -12,7 +12,7 @@ exports.up = function(knex) {
     table.string('level2_pcode').notNullable()
     table.string('level3_pcode').notNullable()
     table.string('level4_pcode').notNullable()
-    table.specificType('geometry', 'geometry').notNullable()
+    table.specificType('geometry', 'Geometry').notNullable()
     table.index['geometry']
     table.index('level0_name')
     table.index('level1_name')
