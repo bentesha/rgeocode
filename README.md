@@ -28,7 +28,7 @@ http://localhost:7000/reverse-geocode/?latitude=-6.8075823&longitude=39.2811514
 
 # Installation
 ### 1. Clone Repository
-Clone this repository on Github, `cd` into the cloned directory and install dependencies.
+Clone this repository on Github, `cd` into project root and install dependencies.
 
 ```
 git clone http://github.com/bentesha/rgeocode.git
